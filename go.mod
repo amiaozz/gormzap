@@ -1,4 +1,4 @@
-module gormzap
+module github.com/amiaozz/gormzap
 
 go 1.18
 
