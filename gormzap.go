@@ -35,10 +35,10 @@ func (l Logger) Print(v ...interface{}) {
 	l.logger(context.Background()).Sugar().Errorf(fmt.Sprint(v...))
 }
 
-func New(zapLogger *zap.Logger) Logger {
+func New(zapLogger *zap.Logger, level gormlogger.LogLevel) Logger {
 	return Logger{
 		ZapLogger:                 zapLogger,
-		LogLevel:                  gormlogger.Warn,
+		LogLevel:                  level,
 		SlowThreshold:             100 * time.Millisecond,
 		SkipCallerLookup:          false,
 		IgnoreRecordNotFoundError: false,
